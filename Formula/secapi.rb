@@ -13,6 +13,6 @@ class Secapi < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/secapi --help 2>&1", 0)
+    assert_match "SEC API CLI", shell_output("#{bin}/secapi --help 2>&1", 0)
   end
 end
