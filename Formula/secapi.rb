@@ -1,8 +1,8 @@
 class Secapi < Formula
   desc "Command-line client for SEC data shaped for investors and agents"
   homepage "https://secapi.ai/developers"
-  url "https://registry.npmjs.org/@secapi/cli/-/cli-0.5.0.tgz"
-  sha256 "43c18395f0b7cfc4b2a7e51ab3bd91a176cbf101e7099c8a2dc800ea2fda5b56"
+  url "https://registry.npmjs.org/@secapi/cli/-/cli-1.0.1.tgz"
+  sha256 "1cb19ca084fd95b2713a43b9c7f4122e82b2fb8cf60cb6dcc36638ebbba68761"
   license "MIT"
 
   depends_on "node"
