@@ -23,7 +23,9 @@ secapi --help
 
 ## Start with a filing workflow
 
-Set `SECAPI_API_KEY` in the calling environment. The CLI reads it from there, so the key stays out of command history.
+Set `SECAPI_API_KEY` in the calling environment. The CLI reads it from there, which keeps the key out of `secapi` command arguments.
+
+For CI and agent workflows, inject the value through the platform's masked-secret environment handling. When a wrapper must supply the value itself, read it noninteractively from standard input rather than placing it in a command argument; do not echo the key or include it in logs or prompts.
 
 ```bash
 export SECAPI_API_KEY="YOUR_SECAPI_API_KEY"
