@@ -1,6 +1,6 @@
-# SEC API CLI Homebrew Tap
+# SEC API Homebrew Tap
 
-Install the [SEC API CLI](https://docs.secapi.ai) with Homebrew to resolve issuers, retrieve SEC filings, and request structured statements from a terminal, script, or agent workflow.
+Install the [SEC API CLI](https://docs.secapi.ai/cli) with Homebrew. It gives you a command-line path to SEC filings, issuer records, and structured statements for research scripts, terminals, and agent tools.
 
 ## Install
 
@@ -15,28 +15,28 @@ Or install it directly without a separate tap command:
 brew install secapi-ai/tap/secapi
 ```
 
-Confirm the installed command:
+Confirm the installed command and see the available commands:
 
 ```bash
 secapi --help
 ```
 
-## Start with a filing workflow
+## Make your first request
 
-Set `SECAPI_API_KEY` in the calling environment. The CLI reads it from there, which keeps the key out of `secapi` command arguments.
+Create an API key in the [SEC API dashboard](https://secapi.ai/app), then set it in your shell. The CLI reads `SECAPI_API_KEY` from the environment, keeping credentials out of command arguments and shell history.
 
 For CI and agent workflows, inject the value through the platform's masked-secret environment handling. When a wrapper must supply the value itself, read it noninteractively from standard input rather than placing it in a command argument; do not echo the key or include it in logs or prompts.
 
 ```bash
-export SECAPI_API_KEY="YOUR_SECAPI_API_KEY"
+export SECAPI_API_KEY="your_api_key"
 secapi entities resolve --ticker AAPL
 secapi filings latest --ticker AAPL --form 10-K
 secapi statements get --ticker AAPL --statement all --period annual --limit 1
 ```
 
-The commands return structured output for the issuer, its latest 10-K, and annual statements. Keep returned source fields, accession numbers, and request IDs with downstream research when available.
+The commands return structured issuer data, the latest matching filing, and annual statements. Keep filing URLs, accession numbers, and request IDs with any research you carry forward.
 
-## Check setup and discover commands
+## Check your setup
 
 ```bash
 secapi health
@@ -44,7 +44,7 @@ secapi filings latest --help
 secapi agent-context
 ```
 
-`secapi health` checks the API origin without authentication. Command help runs locally, and `agent-context` prints a machine-readable command inventory for integrations.
+`secapi health` checks the API origin without authentication. Command help runs locally, and `agent-context` prints a machine-readable command inventory for an integration or agent.
 
 ## Upgrade and uninstall
 
@@ -63,9 +63,11 @@ Only run `brew untap secapi-ai/tap` when you no longer use any formulae from thi
 ## Documentation and support
 
 - [Getting started with SEC API](https://docs.secapi.ai/getting-started)
-- [SEC API developer portal](https://secapi.ai/developers)
+- [CLI reference](https://docs.secapi.ai/cli)
+- [Pricing](https://secapi.ai/pricing)
+- [Support](https://secapi.ai/support)
 - [Report a tap issue](https://github.com/secapi-ai/homebrew-tap/issues)
 
 ## Compatibility
 
-This formula supports Homebrew on macOS and Linux. `secapi` is the preferred executable; `omni-sec` is available as a compatibility alias.
+This formula supports Homebrew on macOS and Linux. It installs Node.js as a dependency. `secapi` is the primary executable; `omni-sec` remains available as a compatibility alias.

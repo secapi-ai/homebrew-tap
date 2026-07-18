@@ -1,0 +1,43 @@
+name: Formula
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  secapi:
+    name: secapi formula
+    runs-on: macos-latest
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v4
+
+      - name: Register checked-out tap
+        run: |
+          set -euo pipefail
+          tap_root="$(brew --repo)/Library/Taps/secapi-ai"
+          tap_path="$tap_root/homebrew-tap"
+          mkdir -p "$tap_root"
+          if [ -e "$tap_path" ]; then
+            existing_path="$(cd "$tap_path" && pwd -P)"
+            if [ "$existing_path" != "$GITHUB_WORKSPACE" ]; then
+              echo "Refusing to replace existing tap path: $tap_path" >&2
+              exit 1
+            fi
+          else
+            ln -s "$GITHUB_WORKSPACE" "$tap_path"
+          fi
+
+      - name: Audit and style
+        run: |
+          set -euo pipefail
+          brew audit --strict --online secapi-ai/tap/secapi
+          brew style secapi-ai/tap/secapi
+
+      - name: Install from source and test
+        run: |
+          set -euo pipefail
+          brew install --build-from-source secapi-ai/tap/secapi
+          brew test secapi-ai/tap/secapi
+          secapi --version
+          secapi --help

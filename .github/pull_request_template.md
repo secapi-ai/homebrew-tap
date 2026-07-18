@@ -27,9 +27,17 @@ Closes #
 <!-- What you ran locally. Paste actual commands and their outcomes. -->
 
 ```bash
-brew audit --strict --online Formula/secapi.rb   # ✅ / ❌
-brew install --build-from-source Formula/secapi.rb  # ✅ / ❌
-brew test secapi                                  # ✅ / ❌
+tap_root="$(brew --repo)/Library/Taps/secapi-ai"
+tap_path="$tap_root/homebrew-tap"
+mkdir -p "$tap_root"
+if [ -e "$tap_path" ]; then
+  [ "$(cd "$tap_path" && pwd -P)" = "$PWD" ]
+else
+  ln -s "$PWD" "$tap_path"
+fi
+brew audit --strict --online secapi-ai/tap/secapi # ✅ / ❌
+brew install --build-from-source secapi-ai/tap/secapi # ✅ / ❌
+brew test secapi-ai/tap/secapi                    # ✅ / ❌
 secapi --version                                  # ✅ / ❌  reports new version
 ```
 
@@ -38,7 +46,7 @@ secapi --version                                  # ✅ / ❌  reports new versi
 
 ```bash
 # Style
-brew style Formula/secapi.rb
+brew style secapi-ai/tap/secapi
 
 # Live tap install (after PR merges this is what users will do)
 brew tap secapi-ai/tap
