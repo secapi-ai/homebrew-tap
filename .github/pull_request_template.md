@@ -27,8 +27,8 @@ Closes #
 <!-- What you ran locally. Paste actual commands and their outcomes. -->
 
 ```bash
-brew audit --strict --online Formula/secapi.rb   # ✅ / ❌
-brew install --build-from-source Formula/secapi.rb  # ✅ / ❌
+brew audit --strict --online secapi-ai/tap/secapi # ✅ / ❌
+brew install --build-from-source secapi-ai/tap/secapi # ✅ / ❌
 brew test secapi                                  # ✅ / ❌
 secapi --version                                  # ✅ / ❌  reports new version
 ```
@@ -38,7 +38,7 @@ secapi --version                                  # ✅ / ❌  reports new versi
 
 ```bash
 # Style
-brew style Formula/secapi.rb
+brew style secapi-ai/tap/secapi
 
 # Live tap install (after PR merges this is what users will do)
 brew tap secapi-ai/tap

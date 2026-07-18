@@ -1,8 +1,8 @@
 class Secapi < Formula
-  desc "CLI for source-traceable SEC filings and structured data"
-  homepage "https://docs.secapi.ai"
-  url "https://registry.npmjs.org/@secapi/cli/-/cli-1.3.0.tgz"
-  sha256 "4caf32bae1ccbf9f01ed2b7be7b3ed0f5c39c6ec09aafc73a8f8d72989939f23"
+  desc "Command-line client for SEC filings and issuer data"
+  homepage "https://docs.secapi.ai/cli"
+  url "https://registry.npmjs.org/@secapi/cli/-/cli-1.4.0.tgz"
+  sha256 "42813b903526914fd0afadbc2cb0a345f68a40fee3399f514c259b360eeff7e8"
   license "MIT"
 
   depends_on "node"
