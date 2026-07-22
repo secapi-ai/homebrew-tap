@@ -1,6 +1,6 @@
 # SEC API Homebrew Tap
 
-Install the [SEC API CLI](https://docs.secapi.ai/cli) with Homebrew. It gives you a command-line path to SEC filings, issuer records, and structured statements for research scripts, terminals, and agent tools.
+[SEC API](https://secapi.ai) provides programmatic access to SEC filings, issuer records, and structured statements. Install its [CLI](https://docs.secapi.ai/cli) with Homebrew for use in research scripts, terminals, and agent tools.
 
 ## Install
 
@@ -65,6 +65,7 @@ Only run `brew untap secapi-ai/tap` when you no longer use any formulae from thi
 - [Getting started with SEC API](https://docs.secapi.ai/getting-started)
 - [CLI reference](https://docs.secapi.ai/cli)
 - [Pricing](https://secapi.ai/pricing)
+- [Service status](https://status.secapi.ai)
 - [Support](https://secapi.ai/support)
 - [Report a tap issue](https://github.com/secapi-ai/homebrew-tap/issues)
 
