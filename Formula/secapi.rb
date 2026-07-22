@@ -1,5 +1,5 @@
 class Secapi < Formula
-  desc "Command-line client for SEC API filings and issuer data"
+  desc "Command-line SEC API client for filings, statements, and issuer data"
   homepage "https://docs.secapi.ai/cli"
   url "https://registry.npmjs.org/@secapi/cli/-/cli-1.4.0.tgz"
   sha256 "42813b903526914fd0afadbc2cb0a345f68a40fee3399f514c259b360eeff7e8"
