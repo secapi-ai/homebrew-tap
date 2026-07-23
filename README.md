@@ -1,6 +1,6 @@
 # SEC API Homebrew Tap
 
-[SEC API](https://secapi.ai) provides programmatic access to SEC filings, issuer records, and structured statements. Install its [CLI](https://docs.secapi.ai/cli) with Homebrew for use in research scripts, terminals, and agent tools.
+[SEC API](https://secapi.ai) provides programmatic access to SEC filings, issuer records, and structured statements. Install the [CLI](https://docs.secapi.ai/cli) with Homebrew for terminal research, reproducible scripts, and agent tools.
 
 ## Install
 
@@ -34,7 +34,7 @@ secapi filings latest --ticker AAPL --form 10-K
 secapi statements get --ticker AAPL --statement all --period annual --limit 1
 ```
 
-The commands return structured issuer data, the latest matching filing, and annual statements. Keep filing URLs, accession numbers, and request IDs with any research you carry forward.
+The commands return structured issuer data, the latest matching filing, and annual statements. Keep filing URLs, accession numbers, and request IDs with any research you carry forward; a later filing can change a latest-filing result.
 
 ## Check your setup
 
